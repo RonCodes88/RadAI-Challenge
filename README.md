@@ -1,5 +1,7 @@
 ﻿# RadAI-Challenge
 # SF Food Truck Finder (Backend Focused, but I also built an UI)
+![image](https://github.com/user-attachments/assets/547b2c9b-e105-4c40-9169-b00775f019d3)
+![image](https://github.com/user-attachments/assets/cd9ab94d-91c0-441a-9168-73202d50a285)
 
 ## Description
 
