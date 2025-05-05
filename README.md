@@ -86,3 +86,7 @@ npm run dev
 ```sh
 pytest test_server.py
 ```
+
+
+#### 5. API Documentation
+- Go to http://localhost:8000/docs
