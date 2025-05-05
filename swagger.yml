@@ -1,0 +1,103 @@
+openapi: 3.0.0
+info:
+  title: Food Truck API
+  version: 1.0.0
+  description: API to search food truck applications in San Francisco
+
+servers:
+  - url: http://localhost:3000/api
+
+paths:
+  /search/name:
+    get:
+      summary: Search by applicant name
+      parameters:
+        - name: name
+          in: query
+          required: true
+          description: Partial or full applicant name
+          schema:
+            type: string
+        - name: status
+          in: query
+          required: false
+          description: Optional filter on status (e.g. APPROVED)
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of matching food trucks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FoodTruck"
+
+  /search/address:
+    get:
+      summary: Search by street name (partial match)
+      parameters:
+        - name: street
+          in: query
+          required: true
+          description: Partial street name (e.g. SANSOME)
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of matching food trucks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FoodTruck"
+
+  /nearest:
+    get:
+      summary: Get 5 nearest food trucks to a location
+      parameters:
+        - name: lat
+          in: query
+          required: true
+          schema:
+            type: number
+            format: float
+        - name: lng
+          in: query
+          required: true
+          schema:
+            type: number
+            format: float
+        - name: status
+          in: query
+          required: false
+          description: Optional status override (e.g. ALL, APPROVED)
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of 5 nearest food trucks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FoodTruck"
+
+components:
+  schemas:
+    FoodTruck:
+      type: object
+      properties:
+        applicant:
+          type: string
+        address:
+          type: string
+        status:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
