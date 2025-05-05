@@ -1,5 +1,5 @@
 ﻿# RadAI-Challenge
-# SF Food Truck Finder
+# SF Food Truck Finder (Backend Focused, but I also built an UI)
 
 ## Description
 
@@ -61,5 +61,28 @@ This project provides a fast, searchable API and a visually appealing web interf
 #### 1. Clone the repository
 
 ```sh
-git clone <repo-url>
+git clone https://github.com/RonCodes88/RadAI-Challenge.git
 cd RadAI-Challenge
+```
+
+#### 2. Run with Docker
+```sh
+docker-compose up
+```
+
+#### 3. Run locally (without Docker)
+##### Backend (Recommended to first initialize a virtual environment)
+```sh
+pip install -r requirements.txt
+```
+##### Frontend (In a separate terminal)
+```sh
+cd food-facilities-ui
+npm install
+npm run dev
+```
+
+#### 4. Run tests
+```sh
+pytest test_server.py
+```
